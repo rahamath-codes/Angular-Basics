@@ -1,0 +1,6 @@
+<ul>
+    <p *ngIf="customers.length==0">No value is added</p>
+    <li *ngFor="let customer of customers" >
+        {{customer.name}}
+    </li>
+</ul>

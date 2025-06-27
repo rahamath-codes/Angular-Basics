@@ -1,0 +1,124 @@
+<div class="container">
+  <form #contactForm="ngForm"   (submit)="onSubmit(contactForm)">
+    <h2>Personal Information</h2>
+
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" #firstName="ngModel" [(ngModel)]="contact.name" name="name" required minlength="8">
+ <br><span class="text-danger" *ngIf="!firstName.valid && firstName.touched==true"> 
+          <span class="text-danger" *ngIf="firstName.errors?.['required']">
+                Firstname is required 
+          </span>
+          <span class="text-danger" *ngIf="firstName.errors?.['minlength'] && firstName.value.length > 0">
+                Minimum 8 characters were required
+          </span>
+        </span>
+    <br><br>
+   
+    <label for="age">Age:</label><br>
+    <input type="number" id="age" [(ngModel)]="contact.age" name="age"><br><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" id="male" name="gender" [(ngModel)]="contact.gender" value="male">
+    <label for="male">Male</label><br>
+
+    <input type="radio" id="female" name="gender" [(ngModel)]="contact.gender" value="female">
+    <label for="female">Female</label><br>
+
+    <input type="radio" id="other" name="gender" [(ngModel)]="contact.gender" value="other">
+    <label for="other">Other</label><br><br>
+
+    <label for="married">Married:</label>
+    <input type="checkbox" id="married" [(ngModel)]="contact.married" name="married"><br><br>
+    
+    <label for="country">Country:</label><br>
+    <select id="country" name="country" [(ngModel)]="contact.country">
+      <option value="">Select</option>
+      <option *ngFor="let country of countryList" [value]="country.id">{{country.name}}</option>
+    </select><br><br>
+
+    <div ngModelGroup="address">
+      <label for="city">City:</label><br>
+      <input type="text" id="city" [(ngModel)]="contact.address.city" name="city"><br><br>
+
+      <label for="pincode">Pincode:</label><br>
+      <input type="text" id="pincode" [(ngModel)]="contact.address.pincode" name="pincode"><br><br>
+
+      <label for="street">Street:</label><br>
+      <input type="text" id="street" [(ngModel)]="contact.address.street" name="street"><br><br>
+    </div>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" [(ngModel)]="contact.email" name="email"><br><br>
+
+    <button type="submit">Submit</button>
+    <!-- can use property binding disabled="!contactForm.valid" in submit button -->
+  </form>
+</div>
+<!--! Validation attributes -->
+
+<table class="table table-bordered table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>Validation Attribute</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>required</td>
+      <td>Makes the field mandatory.</td>
+    </tr>
+    <tr>
+      <td>minlength="number"</td>
+      <td>Sets minimum length of input.</td>
+    </tr>
+    <tr>
+      <td>maxlength="number"</td>
+      <td>Sets maximum length of input.</td>
+    </tr>
+    <tr>
+      <td>min="number|date"</td>
+      <td>Minimum numeric or date value allowed.</td>
+    </tr>
+    <tr>
+      <td>max="number|date"</td>
+      <td>Maximum numeric or date value allowed.</td>
+    </tr>
+    <tr>
+      <td>step="number"</td>
+      <td>Specifies intervals between legal numbers.</td>
+    </tr>
+    <tr>
+      <td>pattern="regex"</td>
+      <td>Input must match this regular expression pattern.</td>
+    </tr>
+    <tr>
+      <td>type="email"</td>
+      <td>Validates email format.</td>
+    </tr>
+    <tr>
+      <td>type="url"</td>
+      <td>Validates URL format.</td>
+    </tr>
+    <tr>
+      <td>type="number"</td>
+      <td>Accepts only numeric input.</td>
+    </tr>
+    <tr>
+      <td>type="tel"</td>
+      <td>Validates telephone number loosely.</td>
+    </tr>
+    <tr>
+      <td>readonly</td>
+      <td>Field is read-only but submitted.</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>Field is disabled, not submitted.</td>
+    </tr>
+    <tr>
+      <td>multiple</td>
+      <td>Allows multiple selections or inputs.</td>
+    </tr>
+  </tbody>
+</table>

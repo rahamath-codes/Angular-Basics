@@ -1,0 +1,59 @@
+<!-- <p>user-list works!</p> -->
+
+
+<h3>Add Users</h3>
+<div class="" (submit)="onSubmit()">
+    <form [formGroup]="userForm" action="" method="post">
+        <label for="">Name : </label> <input type="text" formControlName="name">
+        <br><br>
+        <label for="email">Email : </label> <input type="text" formControlName="email">
+      <br><br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<br>
+<div class="list">
+    <ul type="none">
+    <li *ngFor="let users of user">{{users.id}}. {{users.name}} | {{users.email}}</li>
+</ul>
+</div>
+<br>
+<hr>
+<br>
+    <h3>User's List using HTTP Get Request.</h3>
+<table>
+    <tr>
+        <th rowspan="3">Id</th>
+        <th rowspan="3">Name</th>
+        <th rowspan="3">UserName</th>
+        <th rowspan="3">Phone</th>
+        <th rowspan="3">Email</th>
+        <th rowspan="3">WebSite</th>
+        <th colspan="6">Address</th>
+    </tr>
+    <tr>
+        <th rowspan="2">City</th>
+        <th rowspan="2">Street</th>
+        <th rowspan="2">ZipCode</th>
+        <th rowspan="2">Suite</th>
+        <th colspan="2">Geo</th>
+    </tr>
+    <tr>
+            <th>Latitude</th>
+            <th>Longtitude</th>
+    </tr>
+     <tr *ngFor="let user of user">
+         <td>{{user.id}}</td>
+         <td>{{user.name}}</td>
+         <td>{{user.username}}</td>   
+         <td>{{user.phone}}</td>
+         <td>{{user.email}}</td>
+         <td>{{user.website}}</td>
+         <td>{{user.address.city}}</td>
+         <td>{{user.address.street}}</td>
+        <td>{{user.address.zipcode}}</td>  
+        <td>{{user.address.suite}}</td>
+        <td>{{user.address.geo.lat}}</td>
+        <td>{{user.address.geo.lng}}</td>   
+    </tr>
+</table>

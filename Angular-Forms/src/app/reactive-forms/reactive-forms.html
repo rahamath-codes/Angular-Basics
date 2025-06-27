@@ -1,0 +1,66 @@
+  <h3>Reactive Forms</h3>
+  <div class="container">
+  <form [formGroup]="contactForm" (submit)="onSubmit()">
+
+    <!-- First Name -->
+    <label for="firstName">First Name:</label><br>
+    <input type="text" id="firstName" formControlName="firstName" >
+      <span class="text-danger" *ngIf="!contactForm.controls.firstName.valid && contactForm.controls.firstName.touched" >
+    <span class="text-danger" *ngIf="contactForm.controls.firstName.errors?.['required']">Enter the first name</span>
+    <span class="text-danger" *ngIf="contactForm.controls.firstName.errors?.['minlength']">Enter atleast 8 characters</span>
+    </span>
+    <br><br>
+
+    <!-- Last Name -->
+    <label for="lastName">Last Name:</label><br>
+    <input type="text" id="lastName" formControlName="lastName"><br><br>
+
+    <!-- Email -->
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" formControlName="email"><br><br>
+
+    <!-- Gender -->
+    <label>Gender:</label><br>
+    <input type="radio" id="male" value="male" formControlName="gender">
+    <label for="male">Male</label><br>
+
+    <input type="radio" id="female" value="female" formControlName="gender">
+    <label for="female">Female</label><br>
+
+    <input type="radio" id="other" value="other" formControlName="gender">
+    <label for="other">Other</label><br><br>
+
+    <!-- Is Married -->
+    <label for="isMarried">Married:</label>
+    <input type="checkbox" id="isMarried" formControlName="isMarried"><br><br>
+
+    <!-- Country -->
+    <label for="country">Country:</label><br>
+    <select id="country" formControlName="country">
+      <!-- <option value="">Select</option> -->
+      <option value="1">India</option>
+      <option value="2">USA</option>
+      <option value="3">Germany</option>
+    </select><br><br>
+
+    <!-- Address -->
+
+      <div class="formGroupName" formGroupName="address">
+          <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" class="form-control" formControlName="city" >
+          </div>
+          <div class="form-group">
+              <label for="">Street</label>
+              <input type="text"  class="form-control" formControlName="street">
+          </div>
+          <div class="form-group">
+              <label for="">Pincode</label>
+              <input type="text" class="form-control" formControlName="pincode">
+          </div>
+          <br>
+      </div>
+
+    <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+  </form>
+  </div>

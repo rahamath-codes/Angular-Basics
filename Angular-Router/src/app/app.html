@@ -1,0 +1,9 @@
+<ul type="none">
+  <li><a [routerLink]="['home']" routerLinkActive="active-link">Home</a></li>
+  <li><a [routerLink]="['about']" routerLinkActive="active-link">About</a></li>
+  <li><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li> 
+  <!-- Lazy Loading route -->
+  <li><a routerLink="/feature1">Feature 1</a></li>
+  <!-- Can also use attribute but we need to use / for the url -->
+</ul>
+<router-outlet></router-outlet>

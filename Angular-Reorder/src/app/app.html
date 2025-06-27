@@ -1,0 +1,11 @@
+<button (click)="toggleItems()">
+  {{ showItems ? 'Hide Items' : 'Show Items' }}
+</button>
+
+<div *ngIf="showItems" cdkDropList (cdkDropListDropped)="drop($event)">
+  <app-item-box
+    *ngFor="let item of items"
+    [name]="item"
+    cdkDrag>
+  </app-item-box>
+</div>
