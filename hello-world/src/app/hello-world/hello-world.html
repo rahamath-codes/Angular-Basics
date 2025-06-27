@@ -1,0 +1,116 @@
+<!-- <p>hello-world works!</p>
+<h1>{{title}}</h1>
+<p [innerHTML]="data1"></p>
+<p>{{data2}}</p>
+<br>
+<input type="text" [(ngModel)]="data2" placeholder="Enter the data to be changed">
+
+ <h1 style.color={{color}}>100 * 62 = {{100*62}}</h1>
+<p>Max number {{getMax(2,3)}}</p> -->
+
+<!-- <p>Event Binding</p>
+<p>Your click count : {{clickCount}}</p>
+<button (keydown)="clickMe()">Click to Count</button>
+<br>
+<br>
+<input type="text" (input)="handleEvent($event); value1=$any($event.target).value">
+<br>
+<p>With handleEvent : {{value}}</p>
+<p>Without handleEvent : {{value1}}</p> -->
+
+<!-- <p>Directives - Structural Directives</p>
+<div>
+    <h2>ngFor</h2>
+   <div class="table-responsive">
+    <table class="table table-striped">
+    <thead>
+        <tr> 
+            <th>Sno</th>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Cast</th>
+            <th>Genre</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let movie of movies; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{movie.title}}</td>
+        <td>{{movie.director}}</td>
+        <td>{{movie.cast}}</td>
+        <td>{{movie.genre}}</td>
+    </tbody>
+    </table>
+   </div>
+</div>  -->
+
+<!-- <div>
+    <h2>ngSwitch</h2>
+    Enter a number : <input type="number" [(ngModel)]="num">
+    <div [ngSwitch]="num">
+        <div *ngSwitchCase="1">Jameela</div>
+        <div *ngSwitchCase="2">Asmia</div>
+        <div *ngSwitchCase="3">Aysha Sithika</div>
+        <div *ngSwitchCase="4">Haritha</div>
+        <div *ngSwitchCase="5">No one</div>
+    </div>
+</div> -->
+
+<!-- <div>
+    <h2>ngIf</h2>
+    <div>
+        <input type="checkbox" [(ngModel)]="showMe">
+        <p *ngIf="showMe">checkbox is checked</p>
+        <p *ngIf="!showMe">checkbox is unchecked</p>
+        <div *ngIf="showMe; then thenblock; else elseblock"></div>
+        <ng-template #thenblock >
+            <p>Checked</p>
+        </ng-template>
+        <ng-template #elseblock >
+            <p>UnChecked</p>
+        </ng-template>
+    </div>
+</div> -->
+
+<!-- <div>
+    <label for="">Red</label>
+   
+    <input type="checkbox" [(ngModel)]="enableRed"> <br>
+    <label for="">Big</label>
+    <input type="checkbox" [(ngModel)]="enableBig"> <br>
+    <label for="">Italics</label>
+    <input type="checkbox" [(ngModel)]="enableIlatics">
+    <br>
+
+    <p  [ngClass]="{
+        'primary':enableRed,
+        'big':enableBig,
+        'italics':enableIlatics
+    }">Sample Input</p>
+
+</div> -->
+
+<!--PIPES-->
+<div>
+    <!-- Date Pipe -->
+    <p>{{toDate}}</p>
+    <p>{{toDate|date:'medium'}}</p>
+     <p>{{toDate|date:'longDate'}}</p>
+     <p>{{toDate|date:'short'}}</p>
+     <p>{{toDate|date:'fullDate'}}</p>
+     <p>{{ toDate | date:'yyyy-MM-dd' }}</p> 
+</div>
+<div>
+    <!-- Uppercase and LowerCase -->
+     <p>Original  : {{message}}</p>
+     <p>Uppercase : {{message|uppercase}}</p>
+     <p>Lowercase : {{message|lowercase}}</p>
+     <p>Slice 1 : {{message|slice:11:15}}</p>
+     <p>Slice 2 : {{message|slice:-8}}</p>
+     <p>Slice 3 : {{message|slice:0:7}}</p>
+</div>
+<div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+</div>

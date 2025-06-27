@@ -1,0 +1,12 @@
+<!-- <app-form (caradded)="carAdded($event)"></app-form> -->
+ <app-form></app-form>
+<h5>List works!!</h5>
+<div *ngIf="carList.length>0; then cars; else noData"></div>
+<ng-template #cars>
+    <ul *ngFor="let cars of carList">
+        <li>{{cars}}</li>
+    </ul>
+</ng-template>
+<ng-template #noData>
+    no data available
+</ng-template>

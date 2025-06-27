@@ -1,0 +1,10 @@
+<router-outlet></router-outlet>
+<!-- <app-hello-world></app-hello-world> -->
+Title : <input type="text" [(ngModel)]="title">
+<br> <br>
+<button (click)="addTitle()">Add</button>
+<br>
+Show Heading : <input type="checkbox" [(ngModel)]="destroyed">
+
+<app-heading *ngIf="!destroyed" [text]="title"></app-heading>
+<app-list></app-list>
